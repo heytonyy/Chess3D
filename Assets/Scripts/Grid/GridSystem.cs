@@ -31,11 +31,17 @@ public class GridSystem<TGridObject>
         }
     }
 
-    // Getter Methods
-    public int GetWidth() => width;
-    public int GetHeight() => height;
-
     // Class Methods
+    public int GetWidth()
+    {
+        return width;
+    }
+
+    public int GetHeight()
+    {
+        return height;
+    }
+
     public Vector3 GetWorldPosition(GridPosition gridPosition)
     {
         return new Vector3(gridPosition.x, 0, gridPosition.z) * cellSize;

@@ -5,10 +5,6 @@ using System;
 
 public class Piece : MonoBehaviour
 {
-    // Constants
-
-    // Event Handler
-
     // Member Variables
     [SerializeField] private bool isEnemy;
     private GridPosition gridPosition;
@@ -33,8 +29,20 @@ public class Piece : MonoBehaviour
         }
     }
 
-    // Position Getter Methods
-    public GridPosition GetGridPosition() => gridPosition;
-    public Vector3 GetWorldPosition() => transform.position;
+    // Class Methods
+    public GridPosition GetGridPosition()
+    {
+        return gridPosition;
+    }
+
+    public Vector3 GetWorldPosition()
+    {
+        return transform.position;
+    }
+
+    public bool IsEnemy()
+    {
+        return isEnemy;
+    }
 
 }

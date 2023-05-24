@@ -10,7 +10,7 @@ public class GridDebugObject : MonoBehaviour
     private object gridObject;
 
     // Awake - Start - Update Methods
-    protected virtual void Update()
+    protected virtual void Update() // protected virtual in case we want to override it in a child class
     {
         textMeshPro.text = gridObject.ToString();
     }

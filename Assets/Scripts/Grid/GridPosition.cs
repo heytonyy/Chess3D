@@ -33,7 +33,15 @@ public struct GridPosition : IEquatable<GridPosition>
 
     public override string ToString()
     {
-        return $"{x}, {z}";
+        char columnLetter = ZPositionToAlphaChar(z);
+        int rowNumber = x + 1;
+
+        return $"{columnLetter}{rowNumber}";
+    }
+
+    private char ZPositionToAlphaChar(int z)
+    {
+        return (char)('A' + z);
     }
 
     public static bool operator ==(GridPosition a, GridPosition b)

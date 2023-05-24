@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class GridSystemVisualSingle : MonoBehaviour
 {
+    // Member Variables
     [SerializeField] MeshRenderer meshRenderer;
 
+    // Class Methods
     public void Show(Material material)
     {
         meshRenderer.enabled = true;

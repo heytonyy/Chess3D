@@ -25,13 +25,26 @@ public class GridObject
             pieceString += piece + "\n";
         }
 
-        return gridPosition.ToString() + "\n" + pieceString;
+        // return gridPosition.ToString() + "\n" + pieceString;
+        return gridPosition.ToString();
     }
 
     // Class Methods
-    public List<Piece> GetPieceList() => pieceList;
-    public void AddPiece(Piece piece) => pieceList.Add(piece);
-    public void RemovePiece(Piece piece) => pieceList.Remove(piece);
+    public List<Piece> GetPieceList()
+    {
+        return pieceList;
+    }
+
+    public void AddPiece(Piece piece)
+    {
+        pieceList.Add(piece);
+    }
+
+    public void RemovePiece(Piece piece)
+    {
+        pieceList.Remove(piece);
+    }
+
     public Piece GetPiece()
     {
         if (HadAnyPiece())
@@ -43,6 +56,10 @@ public class GridObject
             return null;
         }
     }
-    public bool HadAnyPiece() => pieceList.Count > 0;
+
+    public bool HadAnyPiece()
+    {
+        return pieceList.Count > 0;
+    }
 
 }

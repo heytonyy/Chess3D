@@ -35,40 +35,31 @@ public class BoardGrid : MonoBehaviour
         gridSystem.CreateDebugObjects(gridDebugObjectPrefab);
     }
 
-    public void PieceMovedGridPosition(
-        Piece piece,
-        GridPosition fromGridPosition,
-        GridPosition toGridPosition
-    )
+    // Class Methods
+    public int GetWidth()
     {
-        RemovePieceAtGridPosition(fromGridPosition, piece);
-
-        AddPieceAtGridPosition(toGridPosition, piece);
-
-        OnAnyPieceMovedGridPosition?.Invoke(this, EventArgs.Empty);
+        return gridSystem.GetWidth();
     }
 
-    public void AddPieceAtGridPosition(GridPosition gridPosition, Piece piece) =>
-        gridSystem.GetGridObject(gridPosition).AddPiece(piece);
+    public int GetHeight()
+    {
+        return gridSystem.GetHeight();
+    }
 
-    public void RemovePieceAtGridPosition(GridPosition gridPosition, Piece piece) =>
-        gridSystem.GetGridObject(gridPosition).RemovePiece(piece);
+    public GridPosition GetGridPosition(Vector3 worldPosition)
+    {
+        return gridSystem.GetGridPosition(worldPosition);
+    }
 
-    public List<Piece> GetPieceListAtGridPosition(GridPosition gridPosition) =>
-        gridSystem.GetGridObject(gridPosition).GetPieceList();
+    public Vector3 GetWorldPosition(GridPosition gridPosition)
+    {
+        return gridSystem.GetWorldPosition(gridPosition);
+    }
 
-    public GridPosition GetGridPosition(Vector3 worldPosition) =>
-        gridSystem.GetGridPosition(worldPosition);
-
-    public Vector3 GetWorldPosition(GridPosition gridPosition) =>
-        gridSystem.GetWorldPosition(gridPosition);
-
-    public int GetWidth() => gridSystem.GetWidth();
-
-    public int GetHeight() => gridSystem.GetHeight();
-
-    public bool IsValidGridPosition(GridPosition gridPosition) =>
-        gridSystem.IsValidGridPosition(gridPosition);
+    public bool IsValidGridPosition(GridPosition gridPosition)
+    {
+        return gridSystem.IsValidGridPosition(gridPosition);
+    }
 
     public bool HasAnyPieceOnGridPosition(GridPosition gridPosition)
     {
@@ -81,4 +72,29 @@ public class BoardGrid : MonoBehaviour
         GridObject gridObject = gridSystem.GetGridObject(gridPosition);
         return gridObject.GetPiece();
     }
+
+    public void PieceMovedGridPosition(Piece piece, GridPosition fromGridPosition, GridPosition toGridPosition)
+    {
+        RemovePieceAtGridPosition(fromGridPosition, piece);
+
+        AddPieceAtGridPosition(toGridPosition, piece);
+
+        OnAnyPieceMovedGridPosition?.Invoke(this, EventArgs.Empty);
+    }
+
+    public void AddPieceAtGridPosition(GridPosition gridPosition, Piece piece)
+    {
+        gridSystem.GetGridObject(gridPosition).AddPiece(piece);
+    }
+
+    public void RemovePieceAtGridPosition(GridPosition gridPosition, Piece piece)
+    {
+        gridSystem.GetGridObject(gridPosition).RemovePiece(piece);
+    }
+
+    public List<Piece> GetPieceListAtGridPosition(GridPosition gridPosition)
+    {
+        return gridSystem.GetGridObject(gridPosition).GetPieceList();
+    }
+
 }
